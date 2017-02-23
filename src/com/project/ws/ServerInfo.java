@@ -2,6 +2,7 @@
 package com.project.ws;
 
 import javax.jws.WebMethod;
+import javax.jws.WebParam;
 import javax.jws.WebResult;
 import javax.jws.WebService;
 import javax.xml.bind.annotation.XmlSeeAlso;
@@ -34,5 +35,23 @@ public interface ServerInfo {
     @ResponseWrapper(localName = "getServerNameResponse", targetNamespace = "http://ws.project.com/", className = "com.project.ws.GetServerNameResponse")
     @Action(input = "http://ws.project.com/ServerInfo/getServerNameRequest", output = "http://ws.project.com/ServerInfo/getServerNameResponse")
     public String getServerName();
+
+    /**
+     * 
+     * @param arg1
+     * @param arg0
+     * @return
+     *     returns int
+     */
+    @WebMethod
+    @WebResult(targetNamespace = "")
+    @RequestWrapper(localName = "division", targetNamespace = "http://ws.project.com/", className = "com.project.ws.Division")
+    @ResponseWrapper(localName = "divisionResponse", targetNamespace = "http://ws.project.com/", className = "com.project.ws.DivisionResponse")
+    @Action(input = "http://ws.project.com/ServerInfo/divisionRequest", output = "http://ws.project.com/ServerInfo/divisionResponse")
+    public int division(
+        @WebParam(name = "arg0", targetNamespace = "")
+        int arg0,
+        @WebParam(name = "arg1", targetNamespace = "")
+        int arg1);
 
 }

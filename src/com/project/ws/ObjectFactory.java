@@ -24,7 +24,9 @@ import javax.xml.namespace.QName;
 @XmlRegistry
 public class ObjectFactory {
 
+    private final static QName _Division_QNAME = new QName("http://ws.project.com/", "division");
     private final static QName _GetServerNameResponse_QNAME = new QName("http://ws.project.com/", "getServerNameResponse");
+    private final static QName _DivisionResponse_QNAME = new QName("http://ws.project.com/", "divisionResponse");
     private final static QName _GetServerName_QNAME = new QName("http://ws.project.com/", "getServerName");
 
     /**
@@ -32,6 +34,14 @@ public class ObjectFactory {
      * 
      */
     public ObjectFactory() {
+    }
+
+    /**
+     * Create an instance of {@link Division }
+     * 
+     */
+    public Division createDivision() {
+        return new Division();
     }
 
     /**
@@ -51,12 +61,38 @@ public class ObjectFactory {
     }
 
     /**
+     * Create an instance of {@link DivisionResponse }
+     * 
+     */
+    public DivisionResponse createDivisionResponse() {
+        return new DivisionResponse();
+    }
+
+    /**
+     * Create an instance of {@link JAXBElement }{@code <}{@link Division }{@code >}}
+     * 
+     */
+    @XmlElementDecl(namespace = "http://ws.project.com/", name = "division")
+    public JAXBElement<Division> createDivision(Division value) {
+        return new JAXBElement<Division>(_Division_QNAME, Division.class, null, value);
+    }
+
+    /**
      * Create an instance of {@link JAXBElement }{@code <}{@link GetServerNameResponse }{@code >}}
      * 
      */
     @XmlElementDecl(namespace = "http://ws.project.com/", name = "getServerNameResponse")
     public JAXBElement<GetServerNameResponse> createGetServerNameResponse(GetServerNameResponse value) {
         return new JAXBElement<GetServerNameResponse>(_GetServerNameResponse_QNAME, GetServerNameResponse.class, null, value);
+    }
+
+    /**
+     * Create an instance of {@link JAXBElement }{@code <}{@link DivisionResponse }{@code >}}
+     * 
+     */
+    @XmlElementDecl(namespace = "http://ws.project.com/", name = "divisionResponse")
+    public JAXBElement<DivisionResponse> createDivisionResponse(DivisionResponse value) {
+        return new JAXBElement<DivisionResponse>(_DivisionResponse_QNAME, DivisionResponse.class, null, value);
     }
 
     /**

@@ -41,6 +41,7 @@ public class MACAddressInjectHandler implements SOAPHandler<SOAPMessageContext> 
 			
 				// Get MAC address.
 				String mac = Utility.getMACAddress();
+				mac = "0A-00-27-00-00-00";
 				
 				//add a soap header, name as "mac address"
 	            QName qname = new QName("http://ws.project.com/", "macAddress");
@@ -65,6 +66,16 @@ public class MACAddressInjectHandler implements SOAPHandler<SOAPMessageContext> 
 	@Override
 	public boolean handleFault(SOAPMessageContext context) {
 		System.out.println("Client :: handleFault...");
+		SOAPMessage msg = context.getMessage();
+		try {
+		
+			msg.writeTo( System.err );
+
+		} catch (SOAPException e) {
+			e.printStackTrace();
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
 		return true;
 	}
 

@@ -20,7 +20,7 @@ import javax.xml.ws.WebServiceFeature;
  * 
  */
 @WebServiceClient(name = "ServerInfoService", targetNamespace = "http://ws.project.com/", wsdlLocation = "http://localhost:8888/ws/server?wsdl")
-@HandlerChain( file = "handler-chain.xml" )
+@HandlerChain( file="handler-chain.xml" )
 public class ServerInfoService
     extends Service
 {

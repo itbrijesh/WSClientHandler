@@ -37,7 +37,7 @@ public class Utility {
 
 			byte[] mac = network.getHardwareAddress();
 				
-			System.out.print("Current MAC address : ");
+			System.out.print("Current MAC address : " + mac );
 				
 			for (int i = 0; i < mac.length; i++) {
 					
@@ -57,5 +57,9 @@ public class Utility {
 		}
 			
 		return sb.toString();
+	}
+	
+	public static void main( String ...args ) {
+		getMACAddress();
 	}
 }
